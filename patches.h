@@ -29,7 +29,7 @@
 /* Adds gradient transparency to st, depends on the alpha patch.
  * https://st.suckless.org/patches/gradient/
  */
-#define ALPHA_GRADIENT_PATCH 0
+#define ALPHA_GRADIENT_PATCH 1
 
 /* This patch allows st to resize to any pixel size rather than snapping to character width/height.
  * https://st.suckless.org/patches/anysize/
@@ -70,7 +70,7 @@
 /* This patch adds custom rendering of lines/blocks/braille characters for gapless alignment.
  * https://st.suckless.org/patches/boxdraw/
  */
-#define BOXDRAW_PATCH 0
+#define BOXDRAW_PATCH 1
 
 /* By default st only sets PRIMARY on selection.
  * This patch makes st set CLIPBOARD on selection.
@@ -85,25 +85,25 @@
  *
  * https://github.com/bakkeby/st-flexipatch/issues/34
  */
-#define COLUMNS_PATCH 0
+#define COLUMNS_PATCH 1
 
 /* Select and copy the last URL displayed with Mod+l. Multiple invocations cycle through the
  * available URLs.
  * https://st.suckless.org/patches/copyurl/
  */
-#define COPYURL_PATCH 0
+#define COPYURL_PATCH 1
 
 /* Select and copy the last URL displayed with Mod+l. Multiple invocations cycle through the
  * available URLs. This variant also highlights the selected URLs.
  * https://st.suckless.org/patches/copyurl/
  */
-#define COPYURL_HIGHLIGHT_SELECTED_URLS_PATCH 0
+#define COPYURL_HIGHLIGHT_SELECTED_URLS_PATCH 1
 
 /* This patch adds support for CSI escape sequences 22 and 23, which save and
  * restores the window title (for instance nvim does this when opening and closing).
  * https://st.suckless.org/patches/csi_22_23/
  */
-#define CSI_22_23_PATCH 0
+#define CSI_22_23_PATCH 1
 
 /* According to the specification (see link in BLINKING_CURSOR_PATCH) the "Set cursor style
  * (DECSCUSR), VT520." escape sequences define both values of 0 and 1 as a blinking block,
@@ -143,12 +143,12 @@
 /* This patch makes the cursor color the inverse of the current cell color.
  * https://st.suckless.org/patches/dynamic-cursor-color/
  */
-#define DYNAMIC_CURSOR_COLOR_PATCH 0
+#define DYNAMIC_CURSOR_COLOR_PATCH 1
 
 /* Reading and writing st's screen through a pipe, e.g. pass info to dmenu.
  * https://st.suckless.org/patches/externalpipe/
  */
-#define EXTERNALPIPE_PATCH 0
+#define EXTERNALPIPE_PATCH 1
 
 /* This patch improves and extends the externalpipe patch in two ways:
  *    - it prevents the reset of the signal handler set on SIGCHILD, when
@@ -166,7 +166,7 @@
  * https://github.com/sos4nt/dynamic-colors
  * https://lists.suckless.org/hackers/2004/17218.html
  */
-#define EXTERNALPIPEIN_PATCH 0
+#define EXTERNALPIPEIN_PATCH 1
 
 /* This patch allows command line applications to use all the fancy key combinations
  * that are available to GUI applications.
