@@ -482,7 +482,7 @@ void historyModeToggle(int start) {
 int historyBufferScroll(int n) {
 	if (IS_SET(MODE_ALTSCREEN) || !n) return histOp;
 	int p=abs(n=(n<0) ? max(n,-term.row) : min(n,term.row)), r=term.row-p,
-	          s=sizeof(*term.dirty), *ptr=histOp?&histOff:&insertOff;
+              s=sizeof(*term.dirty), *ptr=histOp?&histOff:&insertOff;
 	if (!histMode || histOp) tfulldirt(); else {
 		memmove(&term.dirty[-min(n,0)], &term.dirty[max(n,0)], s*r);
 		memset(&term.dirty[n>0 ? r : 0], 0, s * p);
@@ -492,10 +492,10 @@ int historyBufferScroll(int n) {
 	int const prevOffBuf = sel.alt ? 0 : insertOff + term.row;
 	if (sel.ob.x != -1 && !histOp && n) {
 		int const offBuf = sel.alt ? 0 : insertOff + term.row,
-		          pb = rangeY(sel.ob.y - prevOffBuf),
-		          pe = rangeY(sel.oe.y - prevOffBuf);
+                  pb = rangeY(sel.ob.y - prevOffBuf),
+                  pe = rangeY(sel.oe.y - prevOffBuf);
 		int const b = rangeY(sel.ob.y - offBuf), nln = n < 0,
-		          e = rangeY(sel.oe.y - offBuf), last = offBuf - nln;
+                  e = rangeY(sel.oe.y - offBuf), last = offBuf - nln;
 		if (pb != b && ((pb < b) != nln)) sel.ob.y = last;
 		if (pe != e && ((pe < e) != nln)) sel.oe.y = last;
 		if (sel.oe.y == last && sel.ob.y == last) selclear();
@@ -535,9 +535,9 @@ void selnormalize(void) {
 		int const offsetBuffer = sel.alt ? 0 : insertOff + term.row;
 		int const off = sel.alt ? 0 : (histMode ? histOff : insertOff);
 		int const nby = rangeY(sel.ob.y - off),
-		          ney = rangeY(sel.oe.y - off);
+                  ney = rangeY(sel.oe.y - off);
 		sel.swap = rangeY(sel.ob.y - offsetBuffer)
-		         > rangeY(sel.oe.y - offsetBuffer);
+                 > rangeY(sel.oe.y - offsetBuffer);
 		sel.nb.y = sel.swap ? ney : nby;
 		sel.ne.y = !sel.swap ? ney : nby;
 		int const cnb = sel.nb.y < term.row, cne = sel.ne.y < term.row;
@@ -552,9 +552,9 @@ void selnormalize(void) {
 	int const nBet=sel.nb.y<=sel.ne.y, oBet=oldb<=olde;
 	for (int i = 0; i < term.row; ++i) {
 		int const n = nBet ? BETWEEN(i, sel.nb.y, sel.ne.y)
-		                   : OUT(i, sel.nb.y, sel.ne.y);
+                           : OUT(i, sel.nb.y, sel.ne.y);
 		term.dirty[i] |= (sel.type == SEL_RECTANGULAR && n) ||
-		        (n != (oBet ? BETWEEN(i,oldb,olde) : OUT(i,oldb,olde)));
+                (n != (oBet ? BETWEEN(i,oldb,olde) : OUT(i,oldb,olde)));
 
 	}
 	if (BETWEEN(oldb, 0, term.row - 1)) term.dirty[oldb] = 1;
@@ -668,17 +668,17 @@ selected(int x, int y)
 
 	if (sel.type == SEL_RECTANGULAR)
 		return BETWEEN(y, sel.nb.y, sel.ne.y)
-		    && BETWEEN(x, sel.nb.x, sel.ne.x);
+            && BETWEEN(x, sel.nb.x, sel.ne.x);
 
 	#if VIM_BROWSE_PATCH
 	return ((sel.nb.y > sel.ne.y) ? OUT(y, sel.nb.y, sel.ne.y)
-	                              : BETWEEN(y, sel.nb.y, sel.ne.y)) &&
-	       (y != sel.nb.y || x >= sel.nb.x) &&
-	       (y != sel.ne.y || x <= sel.ne.x);
+                                  : BETWEEN(y, sel.nb.y, sel.ne.y)) &&
+           (y != sel.nb.y || x >= sel.nb.x) &&
+           (y != sel.ne.y || x <= sel.ne.x);
 	#else
 	return BETWEEN(y, sel.nb.y, sel.ne.y)
-	    && (y != sel.nb.y || x >= sel.nb.x)
-	    && (y != sel.ne.y || x <= sel.ne.x);
+        && (y != sel.nb.y || x >= sel.nb.x)
+        && (y != sel.ne.y || x <= sel.ne.x);
 	#endif // VIM_BROWSE_PATCH
 }
 
@@ -879,7 +879,7 @@ getsel(void)
 		#else
 			(y < sel.ne.y || lastx >= linelen)
 		#endif //
-		    && (!(last->mode & ATTR_WRAP) || sel.type == SEL_RECTANGULAR))
+            && (!(last->mode & ATTR_WRAP) || sel.type == SEL_RECTANGULAR))
 			*ptr++ = '\n';
 	}
 	*ptr = 0;
@@ -1050,7 +1050,7 @@ ttynew(const char *line, char *cmd, const char *out, char **args)
 	if (line) {
 		if ((cmdfd = open(line, O_RDWR)) < 0)
 			die("open line '%s' failed: %s\n",
-			    line, strerror(errno));
+                line, strerror(errno));
 		dup2(cmdfd, 0);
 		stty(args);
 		return cmdfd;
@@ -1510,7 +1510,7 @@ selscroll(int orig, int n)
 		sel.ob.y += n;
 		sel.oe.y += n;
 		if (sel.ob.y < term.top || sel.ob.y > term.bot ||
-		    sel.oe.y < term.top || sel.oe.y > term.bot) {
+            sel.oe.y < term.top || sel.oe.y > term.bot) {
 			selclear();
 		} else {
 			selnormalize();
@@ -1790,7 +1790,7 @@ tdefcolor(const int *attr, int *npar, int l)
 	case 4: /* direct color in CMYK space */
 	default:
 		fprintf(stderr,
-		        "erresc(38): gfx attr %d unknown\n", attr[*npar]);
+                "erresc(38): gfx attr %d unknown\n", attr[*npar]);
 		break;
 	}
 
@@ -2064,13 +2064,13 @@ tsetmode(int priv, int set, const int *args, int narg)
 				break;
 			/* Not implemented mouse modes. See comments there. */
 			case 1001: /* mouse highlight mode; can hang the
-				      terminal by design when implemented. */
+                      terminal by design when implemented. */
 			case 1005: /* UTF-8 mouse mode; will confuse
-				      applications not supporting UTF-8
-				      and luit. */
+                      applications not supporting UTF-8
+                      and luit. */
 			case 1015: /* urxvt mangled mouse mode; incompatible
-				      and can be mistaken for other control
-				      codes. */
+                      and can be mistaken for other control
+                      codes. */
 				break;
 			default:
 				fprintf(stderr,
@@ -2598,7 +2598,7 @@ strhandle(void)
 				if (par == 104 && narg <= 1)
 					return; /* color reset without parameter */
 				fprintf(stderr, "erresc: invalid color j=%d, p=%s\n",
-				        j, p ? p : "(null)");
+                        j, p ? p : "(null)");
 			} else {
 				if (j == defaultbg)
 					xclearwin();
@@ -3331,7 +3331,7 @@ tresize(int col, int row)
 
 	if (col < 1 || row < 1) {
 		fprintf(stderr,
-		        "tresize: error resizing to %dx%d\n", col, row);
+                "tresize: error resizing to %dx%d\n", col, row);
 		return;
 	}
 
