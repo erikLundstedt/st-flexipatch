@@ -20,7 +20,7 @@ static char *font2[] = {
  * expects farbfeld format
  * pseudo transparency fixes coordinates to the screen origin
  */
-static const char *bgfile = "/path/to/image.ff";
+static const char *bgfile = "/home/erik/Desktop/wallpapers/bg.ff";
 static const int pseudotransparency = 0;
 #endif // BACKGROUND_IMAGE_PATCH
 
@@ -41,10 +41,10 @@ static char *url_opener = "jaro";
 /*
  * What program is execed by st depends of these precedence rules:
  * 1: program passed with -e
- * 2: scroll and/or utmp
- * 3: SHELL environment variable
- * 4: value of shell in /etc/passwd
- * 5: value of shell in config.h
+ * 2: value of shell in config.h
+ * 3: scroll and/or utmp
+ * 4: SHELL environment variable
+ * 5: value of shell in /etc/passwd
  */
 //static
 char *shell = "/usr/bin/hilbish";
@@ -306,7 +306,7 @@ ResourcePref resources[] = {
 		{ "foreground",   STRING,  &colorname[259] },
 		{ "cursorColor",  STRING,  &colorname[256] },
 		{ "termname",     STRING,  &termname },
-		{ "shell",        STRING,  &shell },
+		//{ "shell",        STRING,  &shell },
 		{ "minlatency",   INTEGER, &minlatency },
 		{ "maxlatency",   INTEGER, &maxlatency },
 		{ "blinktimeout", INTEGER, &blinktimeout },
