@@ -350,6 +350,7 @@ void drawboxes(int, int, int, int, XftColor *, XftColor *, const XftGlyphFontSpe
 
 /* config.h globals */
 extern char *utmp;
+extern char *shell;
 extern char *scroll;
 extern char *stty_args;
 extern char *vtiden;

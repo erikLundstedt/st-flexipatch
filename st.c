@@ -16,7 +16,6 @@
 #include <termios.h>
 #include <unistd.h>
 #include <wchar.h>
-
 #include "st.h"
 #include "win.h"
 
@@ -914,7 +913,7 @@ die(const char *errstr, ...)
 void
 execsh(char *cmd, char **args)
 {
-	char *sh, *prog, *arg;
+  char *sh, *prog, *arg;
 	const struct passwd *pw;
 
 	errno = 0;
@@ -926,10 +925,13 @@ execsh(char *cmd, char **args)
 	}
 
 	if ((sh = getenv("SHELL")) == NULL)
-		sh = (pw->pw_shell[0]) ? pw->pw_shell : cmd;
+	  {sh = (pw->pw_shell[0]) ? pw->pw_shell : cmd;}
 
 	if (args) {
 		prog = args[0];
+		arg = NULL;
+	} else if (shell) {
+		prog = shell;
 		arg = NULL;
 	} else if (scroll) {
 		prog = scroll;

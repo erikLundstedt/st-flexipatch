@@ -9,8 +9,8 @@ static char *font = "ubuntu Mono Ligaturized:pixelsize=16:antialias=true:autohin
 #if FONT2_PATCH
 /* Spare fonts */
 static char *font2[] = {
-/*	"Inconsolata for Powerline:pixelsize=12:antialias=true:autohint=true", */
-/*	"Hack Nerd Font Mono:pixelsize=11:antialias=true:autohint=true", */
+	"Inconsolata for Powerline:pixelsize=12:antialias=true:autohint=true",
+	"Hack Nerd Font Mono:pixelsize=11:antialias=true:autohint=true",
 };
 #endif // FONT2_PATCH
 
@@ -46,7 +46,8 @@ static char *url_opener = "jaro";
  * 4: value of shell in /etc/passwd
  * 5: value of shell in config.h
  */
-static char *shell = "/usr/bin/hilbish";
+//static
+char *shell = "/usr/bin/hilbish";
 char *utmp = NULL;
 /* scroll program: to enable use a string like "scroll" */
 char *scroll = NULL;
@@ -762,5 +763,5 @@ static char *plumb_cmd = "plumb";
 #define UNDERCURL_SPIKY 1
 #define UNDERCURL_CAPPED 2
 // Active style
-#define UNDERCURL_STYLE UNDERCURL_SPIKY
+#define UNDERCURL_STYLE UNDERCURL_CAPPED
 #endif // UNDERCURL_PATCH
