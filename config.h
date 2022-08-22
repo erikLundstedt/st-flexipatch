@@ -216,7 +216,7 @@ int const mouseYank = 1, mouseSelect = 0;
 unsigned int const highlightBg = 160, highlightFg = 15;
 char const wDelS[] = "!\"#$%&'()*+,-./:;<=>?@[\\]^`{|}~", wDelL[] = " \t";
 char *nmKeys [] = {              ///< Shortcusts executed in normal mode
-  "R/Building\nN", "r/Building\n", "X/juli@machine\nN", "x/juli@machine\n",
+  "R/Building\nN", "r/Building\n", "X/archLaptop\nN", "x/juli@machine\n",
   "Q?[Leaving vim, starting execution]\n","F/: error:\nN", "f/: error:\n", "DQf"
 };
 unsigned int const amountNmKeys = sizeof(nmKeys) / sizeof(*nmKeys);
@@ -306,7 +306,7 @@ ResourcePref resources[] = {
 		{ "foreground",   STRING,  &colorname[259] },
 		{ "cursorColor",  STRING,  &colorname[256] },
 		{ "termname",     STRING,  &termname },
-		//{ "shell",        STRING,  &shell },
+		{ "shell",        STRING,  &shell },
 		{ "minlatency",   INTEGER, &minlatency },
 		{ "maxlatency",   INTEGER, &maxlatency },
 		{ "blinktimeout", INTEGER, &blinktimeout },
@@ -425,7 +425,7 @@ static Shortcut shortcuts[] = {
 	{ MODKEY,               XK_l,           copyurl,         {.i =  0} },
 	#endif // COPYURL_PATCH
 	#if OPENCOPIED_PATCH
-	{ MODKEY,               XK_o,           opencopied,      {.v = "xdg-open"} },
+	{ MODKEY,               XK_o,           opencopied,      {.v = "jaro"} },
 	#endif // OPENCOPIED_PATCH
 	#if NEWTERM_PATCH
 	{ TERMMOD,              XK_Return,      newterm,         {.i =  0} },
