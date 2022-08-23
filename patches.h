@@ -29,7 +29,7 @@
 /* Adds gradient transparency to st, depends on the alpha patch.
  * https://st.suckless.org/patches/gradient/
  */
-#define ALPHA_GRADIENT_PATCH 1
+#define ALPHA_GRADIENT_PATCH 0
 
 /* This patch allows st to resize to any pixel size rather than snapping to character width/height.
  * https://st.suckless.org/patches/anysize/
@@ -76,7 +76,7 @@
  * This patch makes st set CLIPBOARD on selection.
  * https://st.suckless.org/patches/clipboard/
  */
-#define CLIPBOARD_PATCH 1
+#define CLIPBOARD_PATCH 0
 
 /* This patch allows st to be resized without cutting off text when the terminal window is
  * made larger again. Text does not wrap when the terminal window is made smaller.
@@ -118,7 +118,7 @@
  * While many terminal emulators do this it is not adhering to specification. xterm is an
  * example terminal that sets a blinking block instead of the configured one, same as st.
  */
-#define DEFAULT_CURSOR_PATCH 0
+#define DEFAULT_CURSOR_PATCH 1
 
 /* Return BS on pressing backspace and DEL on pressing the delete key.
  * https://st.suckless.org/patches/delkey/
@@ -205,12 +205,12 @@
  * codepoint that will be converted to a glyph and then pushed to st.
  * https://st.suckless.org/patches/iso14755/
  */
-#define ISO14755_PATCH 0
+#define ISO14755_PATCH 1
 
 /* This patch allows you to select text on the terminal using keyboard shortcuts.
  * https://st.suckless.org/patches/keyboard_select/
  */
-#define KEYBOARDSELECT_PATCH 0
+#define KEYBOARDSELECT_PATCH 1
 
 /* This patch adds support for drawing ligatures using the Harfbuzz library to transform
  * original text of a single line to a list of glyphs with ligatures included.
@@ -380,7 +380,7 @@
  * https://github.com/juliusHuelsmann/st-history-vim
  * https://st.suckless.org/patches/vim_browse/
  */
-#define VIM_BROWSE_PATCH 1
+#define VIM_BROWSE_PATCH 0
 
 /* Briefly inverts window content on terminal bell event.
  * https://st.suckless.org/patches/visualbell/
